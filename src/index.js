@@ -9,10 +9,6 @@ const usersRoutes = require('./routes/usersRoutes');
 const swapiRoutes = require('./routes/swapiRoutes');
 const { notFound, errorHandler } = require('./utils/errorHandlers');
 
-const USERS_TABLE = process.env.USERS_TABLE;
-const client = new DynamoDBClient();
-const dynamoDbClient = DynamoDBDocumentClient.from(client);
-
 app.use(express.json());
 
 app.use('/api', usersRoutes);

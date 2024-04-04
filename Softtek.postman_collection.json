@@ -1,0 +1,157 @@
+{
+	"info": {
+		"_postman_id": "33be849b-fe8e-4db0-931d-e80fa9e4b58b",
+		"name": "Softtek",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "33675746"
+	},
+	"item": [
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Create User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userId\": \"leslydelrock\",\r\n    \"name\": \"Lesly\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://53vkimu4c3.execute-api.us-east-1.amazonaws.com/api/users",
+						"description": "\nThis endpoint allows you to create a new user by sending a POST request to the specified URL. The request should include a JSON payload in the raw request body type with the \"userId\" and \"name\" fields.\n\n### Request Body\n- `userId` (string) - The unique identifier for the user.\n- `name` (string) - The name of the user.\n\n### Response\nUpon a successful creation, the API will respond with a status code of 200 and a JSON object containing the \"userId\" and \"name\" of the newly created user.\n\nExample:\n```json\n{\n    \"userId\": \"exampleUserId\",\n    \"name\": \"John Doe\"\n}\n```\n"
+					},
+					"response": []
+				},
+				{
+					"name": "View User",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userId\": \"ronaldefg\",\r\n    \"name\": \"Ronald\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://53vkimu4c3.execute-api.us-east-1.amazonaws.com/api/users/ronaldefg",
+						"description": "\nThis endpoint retrieves user information based on the provided user ID. \n\nThe request should be sent using an HTTP GET method to the specified URL with the user ID as a path parameter.\n\nThe request body should contain the user ID and name in a raw JSON format.\n\n### Request Parameters\n- userId (string, required): The unique identifier of the user.\n- name (string, optional): The name of the user.\n\n### Response\nUpon a successful request, the server responds with a status code of 200 and a JSON object containing the user's name and ID.\n\nExample:\n```json\n{\n    \"name\": \"\",\n    \"userId\": \"\"\n}\n```\n"
+					},
+					"response": []
+				},
+				{
+					"name": "List Users",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userId\": \"ronaldefg\",\r\n    \"name\": \"Ronald\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://53vkimu4c3.execute-api.us-east-1.amazonaws.com/api/users/",
+						"description": "\nThis endpoint makes an HTTP GET request to retrieve a list of users from the specified API. The request does not require any parameters in the payload. The response will be in JSON format and will include an array of user objects, each containing the \"name\" and \"userId\" attributes.\n\nExample:\n```json\n[\n    {\n        \"name\": \"\",\n        \"userId\": \"\"\n    }\n]\n```\n"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "People SW",
+			"item": [
+				{
+					"name": "List People SW",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://53vkimu4c3.execute-api.us-east-1.amazonaws.com/api/swapi/peoples/?page=1",
+							"protocol": "https",
+							"host": [
+								"53vkimu4c3",
+								"execute-api",
+								"us-east-1",
+								"amazonaws",
+								"com"
+							],
+							"path": [
+								"api",
+								"swapi",
+								"peoples",
+								""
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								}
+							]
+						},
+						"description": "\nThis endpoint makes an HTTP GET request to retrieve a list of people from the Star Wars API. The request should include the query parameter 'page' with the page number. The response will be in JSON format and will include the count of people, links to the next and previous pages, and an array of people with their details such as name, height, mass, hair color, and more.\n"
+					},
+					"response": []
+				},
+				{
+					"name": "View People SW",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "https://53vkimu4c3.execute-api.us-east-1.amazonaws.com/api/swapi/peoples/1/",
+						"description": "This endpoint makes an HTTP GET request to retrieve information about a specific character from the Star Wars API. The response will contain details such as the character's name, height, mass, hair color, skin color, eye color, birth year, gender, as well as information about their home planet, films they have appeared in, species, vehicles, starships, and other relevant details.\n\nThe response will be in JSON format with a 200 status code."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "SWAPI",
+			"item": [
+				{
+					"name": "List People",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "https://swapi.py4e.com/api/people"
+					},
+					"response": []
+				},
+				{
+					"name": "View People",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "https://swapi.py4e.com/api/people/1/"
+					},
+					"response": []
+				},
+				{
+					"name": "View Planet",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "https://swapi.py4e.com/api/planets/1/"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

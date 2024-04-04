@@ -3,9 +3,13 @@ const SwapiModel = require('../models/swapiModel');
 const API_URL = 'https://swapi.py4e.com/api';
 class SwapiService {
     static async getAllPeople(page) {
+        if (page === undefined || page === null) {
+            page = 1;
+        }
         try {
             const response = await axios.get(API_URL + `/people/?page=${page}`);
-            return response.data;
+            const peopleData = response.data.results;
+            return peopleData.map(person => new SwapiModel(person));
         } catch (error) {
             console.error('Error al obtener el personaje de SWAPI:', error);
             throw new Error('No se pudo obtener el personaje de SWAPI');
